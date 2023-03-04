@@ -1,0 +1,7 @@
+{
+  "name": "pamsimas",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
