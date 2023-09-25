@@ -1,0 +1,30 @@
+<ion-content fullscreen="true">
+  <ion-list class="ion-margin ion-text-center">
+    <ion-list-header>
+      <ion-label>PAMSIMAS</ion-label>
+    </ion-list-header>
+    <img src="assets/sidomakmur.png" class="center">
+
+    <div class="ion-padding">
+      <form [formGroup]="form" (submit)="onSubmit()">
+        <div class="wrap-input">
+          <input  class="input" type="text" name="username" required formControlName="username" placeholder="Username">
+        </div>
+
+        <div class="wrap-input">
+          <input class="input" type="password" name="password" required formControlName="password" placeholder="Password">
+        </div>
+
+        <div class="container-form-btn">
+          <button class="form-btn custom-font" [disabled]="form.invalid" type="submit">
+          Masuk
+          </button>
+        </div>
+
+
+      </form>
+
+    </div>
+
+  </ion-list>
+</ion-content>

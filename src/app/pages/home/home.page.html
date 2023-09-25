@@ -1,0 +1,133 @@
+<ion-content fullscreen="true">
+  <ion-item class="img">
+      <img src="assets/logo2.png" class="center">
+  </ion-item>
+  <h2 routerLink="/home/profil" tab="profil" (click)="selectTab('home2')">Hello, {{ username }}! <ion-icon name="arrow-redo-outline" size="medium"></ion-icon></h2>
+  <ion-buttons slot="end">
+    <ion-button ><ion-icon name="save" color="light"></ion-icon></ion-button>
+  </ion-buttons>
+  <ion-buttons slot="start">
+    <ion-back-button></ion-back-button>
+  </ion-buttons>
+
+<ion-item class="date">
+  <ion-grid>
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="1">
+        <ion-icon name="calendar-number-outline" size="large"></ion-icon>
+      </ion-col>
+      <ion-col size="5">
+        <ion-datetime-button datetime="datetime"></ion-datetime-button>
+      <ion-modal [keepContentsMounted]="true">
+        <ng-template>
+          <ion-datetime id="datetime" presentation="month-year"></ion-datetime>
+        </ng-template>
+
+      </ion-modal>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-item>
+<!-- Tombol untuk memanggil fungsi getData() -->
+
+<ion-segment class="segment-wrapper" [(ngModel)]="selectTabs">
+  <ion-segment-button value="0">
+    <ion-label>Pelanggan</ion-label>
+  </ion-segment-button>
+  <ion-segment-button value="1">
+    <ion-label>Ringkasan</ion-label>
+  </ion-segment-button>
+</ion-segment>
+
+<div *ngIf="selectTabs === '0'">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="9">
+        <ion-searchbar
+            placeholder="Search"
+            [(ngModel)]="searchPembayaran"
+            showCancelButton="focus"
+            animated>
+        </ion-searchbar>
+      </ion-col>
+      <ion-col class="scan" size="2">
+        <ion-tab-button routerLink="/home/data-pembayaran">
+          <img src="/assets/qr-code-scan.png" alt="">
+        </ion-tab-button>
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+
+    <ion-list *ngFor="let pembayaran of pembayaran; let i = index">
+
+      <ion-item-sliding >
+        <ion-item  >
+            <ion-grid class="grid">
+              <ion-row (click)="detailInvoice(pembayaran)">
+                <ion-col class="numb" size="1" >
+                  <p id="no">{{ getNomorUrut(i) }}</p>
+                </ion-col>
+                <ion-col class="cont">
+                  <h3 id="tittle"> {{pembayaran.nama_pelanggan}} </h3>
+                  <p id="subtext"> {{pembayaran.alamat_pelanggan}}</p>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+        </ion-item>
+        <ion-item-options side="end" >
+          <ion-item-option color="warning" (click)="updateInv(pembayaran)">
+            <ion-icon name="pencil"></ion-icon>
+          </ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
+
+    </ion-list>
+
+
+</div>
+
+<div *ngIf="selectTabs === '1'">
+  <ion-list>
+    <ion-item *ngFor="let pelanggan of data">
+      <ion-label>{{ pelanggan.nama_pelanggan }}</ion-label>
+      <ion-note>{{ pelanggan.alamat }}</ion-note>
+      <ion-note>{{ pelanggan.telepon }}</ion-note>
+      <!-- Tampilkan data invoice untuk bulan dan tahun yang telah dipilih -->
+      <ion-list>
+        <ion-item *ngFor="let invoice of pelanggan.invoices">
+          <ion-label>{{ invoice.bulan }}/{{ invoice.tahun }}</ion-label>
+          <ion-note>{{ invoice.jumlah_meteran }}</ion-note>
+          <ion-note>{{ invoice.nama_pencatat }}</ion-note>
+        </ion-item>
+      </ion-list>
+    </ion-item>
+  </ion-list>
+  <p>pemasukan bulan ini</p>
+  <p>kekurangan bulan ini</p>
+  <p>jumlah yang lunas dari</p>
+  <p>jumlah yang belum bayar dari total customer</p>
+  <p>jumlah yang dicatat oleh</p>
+  <p>jumlah yang ditarik oleh</p>
+</div>
+
+</ion-content>
+  <ion-tab-bar slot="bottom" [ngClass]="{'selected': selectedTab === 'home1'}">
+    <ion-tab-button routerLink="/home" (click)="selectTab('home1')">
+      <ion-icon name="home" [style.color]="home1Color"></ion-icon>
+      <ion-label [style.color]="home1Color">Home</ion-label>
+    </ion-tab-button>
+    <ion-tab-button routerLink="/home/data-keuangan" tab="profil" (click)="selectTab('home2')">
+      <ion-icon  name="stats-chart-outline" [style.color]="home2Color"></ion-icon>
+      <ion-label [style.color]="home2Color">Keuangan</ion-label>
+    </ion-tab-button>
+    <ion-tab-button routerLink="/home/data-pelanggan" tab="profil" (click)="selectTab('home2')">
+      <ion-icon  name="people-outline" [style.color]="home2Color"></ion-icon>
+      <ion-label [style.color]="home2Color">Pelanggan</ion-label>
+    </ion-tab-button>
+    <ion-tab-button routerLink="/home/data-user" tab="profil" (click)="selectTab('home2')">
+      <ion-icon  name="ribbon-outline" [style.color]="home2Color"></ion-icon>
+      <ion-label [style.color]="home2Color">Pengurus</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+

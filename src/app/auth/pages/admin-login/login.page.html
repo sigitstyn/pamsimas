@@ -1,0 +1,45 @@
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+<ion-header class="ion-no-border">
+
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <div class="back-circle"></div>
+		<ion-title class="ion-text-center custom-font" >Sign In</ion-title>
+	</ion-toolbar>
+
+</ion-header>
+
+<ion-content fullscreen="true">
+  <h1 class="ion-text-center">WELCOME</h1>
+  <h2 class="ion-text-center">Administrator</h2>
+
+
+<div class="ion-padding">
+  <form [formGroup]="form" (submit)="onSubmit()">
+    <div class="wrap-input">
+    <input class="input" type="text" name="username" required formControlName="username" placeholder="Username">
+    </div>
+
+    <div class="wrap-input">
+      <input class="input" type="password" name="password" required formControlName="password" placeholder="Password">
+    </div>
+
+    <div class="container-form-btn">
+      <button class="form-btn custom-font" [disabled]="form.invalid" type="submit">
+      Masuk
+      </button>
+    </div>
+
+
+  </form>
+
+</div>
+<!--<div class="ion-padding info-1">
+  <p >
+    Don't have an account? <span (click)="openRegistrasi()"> Sign Up </span>
+  </p>
+</div> // -->
+</ion-content>

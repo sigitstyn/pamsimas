@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{isUpdate ? 'Update' : 'Buat'}} Pelanggan</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()">Close</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <ion-item>
+      <ion-label position="floating">No Pelanggan</ion-label>
+      <ion-input [(ngModel)]="data.no_pelanggan" name="no_pelanggan"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Nama</ion-label>
+      <ion-input [(ngModel)]="data.nama_pelanggan" name="nama_pelanggan"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Alamat</ion-label>
+      <ion-input [(ngModel)]="data.alamat_pelanggan" name="alamat_pelanggan"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Kategori</ion-label>
+      <ion-select placeholder="Umum/Anggota" [(ngModel)]="data.kategori" name="kategori">
+        <ion-select-option value="U">Umum</ion-select-option>
+        <ion-select-option value="A">Anggota</ion-select-option>
+      </ion-select>
+
+    </ion-item>
+    <ion-button
+      fill="solid"
+      shape="round"
+      expand="block"
+      type="submit"
+      color="primary"
+      class="ion-margin-top"
+    >{{isUpdate ? 'Update' : 'Save'}}</ion-button>
+
+  </form>
+
+</ion-content>

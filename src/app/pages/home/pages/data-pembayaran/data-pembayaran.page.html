@@ -1,0 +1,117 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title size="small">DATA PEMBAYARAN</ion-title>
+    <ion-buttons slot="end">
+      <ion-button ><ion-icon name="save" color="light"></ion-icon></ion-button>
+    </ion-buttons>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-item class="date">
+    <ion-datetime-button datetime="datetime"></ion-datetime-button>
+        <ion-modal [keepContentsMounted]="true">
+          <ng-template>
+            <ion-datetime id="datetime" presentation="month-year"></ion-datetime>
+          </ng-template>
+
+        </ion-modal>
+
+  </ion-item>
+<!-- Tombol untuk memanggil fungsi getData() -->
+
+  <ion-segment class="segment-wrapper" [(ngModel)]="selectTabs">
+    <ion-segment-button value="0">
+      <ion-label>Pelanggan</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="1">
+      <ion-label>Ringkasan</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+</ion-header>
+
+
+
+<ion-content>
+
+  <div *ngIf="selectTabs === '0'">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="7">
+          <ion-searchbar
+              placeholder="Search"
+              [(ngModel)]="searchPembayaran"
+              showCancelButton="focus"
+              animated>
+          </ion-searchbar>
+        </ion-col>
+        <ion-col class="scan" size="2">
+          <ion-tab-button routerLink="/home/data-pembayaran">
+            <img src="/assets/qr-code-scan.png" alt="">
+          </ion-tab-button>
+        </ion-col>
+        <ion-col size="3">
+          <ion-item>
+            <ion-icon name="filter-outline"></ion-icon>
+            <ion-select name="kategori">
+              <ion-select-option value="L">Lunas</ion-select-option>
+              <ion-select-option value="B">Belum Lunas</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+      <ion-list *ngFor="let pembayaran of pembayaran; let i = index">
+
+        <ion-item-sliding >
+          <ion-item  >
+              <ion-grid class="grid">
+                <ion-row (click)="detailInvoice(pembayaran)">
+                  <ion-col class="numb" size="1" >
+                    <p id="no">{{ getNomorUrut(i) }}</p>
+                  </ion-col>
+                  <ion-col class="cont">
+                    <h3 id="tittle"> {{pembayaran.nama_pelanggan}} </h3>
+                    <p id="subtext"> {{pembayaran.alamat_pelanggan}}</p>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+          </ion-item>
+          <ion-item-options side="end" >
+            <ion-item-option color="warning" (click)="updateInv(pembayaran)">
+              <ion-icon name="pencil"></ion-icon>
+            </ion-item-option>
+          </ion-item-options>
+        </ion-item-sliding>
+
+      </ion-list>
+
+
+  </div>
+
+  <div *ngIf="selectTabs === '1'">
+    <ion-list>
+      <ion-item *ngFor="let pelanggan of data">
+        <ion-label>{{ pelanggan.nama_pelanggan }}</ion-label>
+        <ion-note>{{ pelanggan.alamat }}</ion-note>
+        <ion-note>{{ pelanggan.telepon }}</ion-note>
+        <!-- Tampilkan data invoice untuk bulan dan tahun yang telah dipilih -->
+        <ion-list>
+          <ion-item *ngFor="let invoice of pelanggan.invoices">
+            <ion-label>{{ invoice.bulan }}/{{ invoice.tahun }}</ion-label>
+            <ion-note>{{ invoice.jumlah_meteran }}</ion-note>
+            <ion-note>{{ invoice.nama_pencatat }}</ion-note>
+          </ion-item>
+        </ion-list>
+      </ion-item>
+    </ion-list>
+    <p>pemasukan bulan ini</p>
+    <p>kekurangan bulan ini</p>
+    <p>jumlah yang lunas dari</p>
+    <p>jumlah yang belum bayar dari total customer</p>
+    <p>jumlah yang dicatat oleh</p>
+    <p>jumlah yang ditarik oleh</p>
+  </div>
+
+</ion-content>

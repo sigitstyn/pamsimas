@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Pembayaran</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()">Close</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form >
+    <ion-item>
+      <ion-label position="floating">No Pelanggan</ion-label>
+      <ion-input [(ngModel)]="data.jumlah_bayar" name="jumlah_bayar"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Kategori</ion-label>
+      <ion-select placeholder="Lunas/Belum Lunas" [(ngModel)]="data.status_pembayaran" name="status_pembayaran">
+        <ion-select-option value="LUNAS">Lunas</ion-select-option>
+        <ion-select-option value="BELUM LUNAS">Belum Lunas</ion-select-option>
+      </ion-select>
+
+    </ion-item>
+    <ion-button
+      fill="solid"
+      shape="round"
+      expand="block"
+      type="submit"
+      color="primary"
+      class="ion-margin-top"
+    >Update</ion-button>
+
+  </form>
+
+</ion-content>

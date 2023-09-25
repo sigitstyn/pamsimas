@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title size="small">KEUANGAN</ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+</ion-content>
+<ion-tab-bar slot="bottom" [ngClass]="{'selected': selectedTab === 'home1'}">
+  <ion-tab-button routerLink="/home" (click)="selectTab('home1')">
+    <ion-icon name="home" [style.color]="home1Color"></ion-icon>
+    <ion-label [style.color]="home1Color">Home</ion-label>
+  </ion-tab-button>
+  <ion-tab-button routerLink="/home/data-keuangan" tab="data-keuangan" (click)="selectTab('home2')">
+    <ion-icon  name="stats-chart-outline" [style.color]="home2Color"></ion-icon>
+    <ion-label [style.color]="home2Color">Keuangan</ion-label>
+  </ion-tab-button>
+  <ion-tab-button routerLink="/home/data-pelanggan" tab="data-pelanggan" (click)="selectTab('home1')">
+    <ion-icon  name="people-outline" [style.color]="home1Color"></ion-icon>
+    <ion-label [style.color]="home1Color">Pelanggan</ion-label>
+  </ion-tab-button>
+  <ion-tab-button routerLink="/home/data-user" tab="data-user" (click)="selectTab('home1')">
+    <ion-icon  name="ribbon-outline" [style.color]="home1Color"></ion-icon>
+    <ion-label [style.color]="home1Color">Pengurus</ion-label>
+  </ion-tab-button>
+</ion-tab-bar>

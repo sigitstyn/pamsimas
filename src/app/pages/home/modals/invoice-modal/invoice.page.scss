@@ -1,0 +1,75 @@
+ion-content{
+  ion-grid{
+    .satu{
+      #nama{
+        margin-left: 10px;
+        font-size: larger;
+        font-weight: bold;
+      }
+      #inv{
+        font-size: small;
+        font-style: italic;
+        opacity: 50%;
+      }
+    }
+    .id{
+      font-size: smaller;
+      opacity: 70%;
+      margin-top: -40px;
+      #id{
+        margin-left: 20px;
+      }
+      #kategori{
+        margin-left: -60px;
+      }
+    }
+    .alamat{
+      margin-top:  -10px;
+      margin-left: 20px;
+
+    }
+    .dua{
+      margin-top: 20px;
+      #tabel{
+        font-weight: bold;
+        background-color: #0083B0;
+        border: solid 1px #fff;
+        color: #fff;
+        text-align: center;
+      }
+    }
+    .tiga{
+      #data{
+        background-color: #0084b033;
+        border: solid 1px #ffffff;
+        color: #0083B0;
+        text-align: center;
+        font-weight: bold;
+        margin-bottom: 20px;
+      }
+    }
+    .abonamen{
+      margin-left: 30px;
+      opacity: 60%;
+      font-weight: bold;
+    }
+    .status{
+      background-color: #0083B0;
+      color: #fff;
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+      justify-items: center;
+      opacity: 80%;
+      h4{
+        font-weight: bold;
+      }
+      margin-bottom: 20px;
+    }
+    .note{
+      font-size: smaller;
+      opacity: 70%;
+      margin-left: 20px;
+    }
+  }
+}

@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Tambah Pengurus</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-no-padding">
+
+  <form [formGroup]="form" (submit)="onSubmit()">
+      <ion-item>
+        <ion-label position="floating">First Name</ion-label>
+        <ion-input type="text" placeholder="First Name" required formControlName="firstname"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Last Name</ion-label>
+        <ion-input type="text" placeholder="Last Name" required formControlName="lastname"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Username</ion-label>
+        <ion-input type="text" placeholder="Username" required formControlName="username"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Password</ion-label>
+        <ion-input type="password" placeholder="Password" required formControlName="password"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-select interface="popover" placeholder="Select Role" required formControlName="role">
+          <ion-select-option value="admin">Admin</ion-select-option>
+          <ion-select-option value="pencatat">Pencatat</ion-select-option>
+          <ion-select-option value="penarik">Penarik</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-button type="submit" color="primary" class="ion-margin-top" expand="full" [disabled]="form.invalid">Register</ion-button>
+   </form>
+</ion-content>

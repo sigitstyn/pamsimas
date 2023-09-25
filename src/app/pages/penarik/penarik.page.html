@@ -1,0 +1,74 @@
+<ion-content fullscreen="true">
+    <ion-item class="img">
+        <img src="assets/logo2.png" class="center">
+    </ion-item>
+    <h2>Hello, {{ username }}!</h2>
+        <img src="/assets/logout.png" alt="" slot="end" (click)="tryLogout()">
+  <ion-segment class="segment-wrapper" [(ngModel)]="selectTabs">
+    <ion-segment-button value="0">
+      <ion-label>Pelanggan</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="1">
+      <ion-label>Tunggakan</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <div *ngIf="selectTabs === '0'">
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-searchbar
+            placeholder="Search"
+            [(ngModel)]="searchPembayaran"
+            showCancelButton="focus"
+            animated>
+        </ion-searchbar>
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+
+    <ion-list *ngFor="let pembayaran of pembayaran; let i = index">
+
+      <ion-item-sliding >
+        <ion-item  >
+            <ion-grid class="grid">
+              <ion-row (click)="detailInvoice(pembayaran)">
+                <ion-col class="numb" size="1" >
+                  <p id="no">{{ getNomorUrut(i) }}</p>
+                </ion-col>
+                <ion-col class="cont">
+                  <h3 id="tittle"> {{pembayaran.nama_pelanggan}} </h3>
+                  <p id="subtext"> {{pembayaran.alamat_pelanggan}}</p>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+        </ion-item>
+        <ion-item-options side="end" >
+          <ion-item-option color="warning" (click)="updateInv(pembayaran)">
+            <ion-icon name="pencil"></ion-icon>
+          </ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
+
+    </ion-list>
+
+  </div>
+
+
+</ion-content>
+  <ion-tab-bar slot="bottom" [ngClass]="{'selected': selectedTab === 'scan'}">
+    <ion-tab-button routerLink="/penarik" (click)="selectTab('scan')">
+      <ion-icon name="home-outline" [style.color]="scan1Color"></ion-icon>
+      <ion-label [style.color]="scan1Color">Home</ion-label>
+    </ion-tab-button>
+    <ion-tab-button routerLink="/penarik/scanqr" (click)="selectTab('scan2')">
+      <ion-icon name="qr-code-outline" [style.color]="scan2Color"></ion-icon>
+      <ion-label [style.color]="scan2Color">Scan</ion-label>
+    </ion-tab-button>
+    <ion-tab-button routerLink="/penarik/profil" tab="profil" (click)="selectTab('scan3')">
+      <ion-icon  name="person-outline" [style.color]="scan2Color"></ion-icon>
+      <ion-label [style.color]="scan2Color">Profil</ion-label>
+    </ion-tab-button>
+</ion-tab-bar>

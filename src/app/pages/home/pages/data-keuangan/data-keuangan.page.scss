@@ -1,0 +1,16 @@
+ion-header{
+  ion-toolbar{
+    --background: linear-gradient(to right, #00B4DB, #0083B0);
+    ion-title{
+      font-family: 'Segoe UI';
+      font-weight: bold;
+      text-align: center;
+      color: whitesmoke;
+    }
+
+  }
+}
+
+ion-content{
+  --background: var(--ion-color-dark) url('/assets/bg3.jpg') no-repeat center center/cover;
+}

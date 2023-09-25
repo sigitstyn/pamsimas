@@ -1,0 +1,130 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title >Details</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()">Close</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-grid>
+      <ion-row class="satu">
+        <ion-col size="8" id="nama">
+          <p>
+            {{pembayaran.nama_pelanggan}}
+          </p>
+        </ion-col>
+        <ion-col id="inv">
+          <p>
+            INV.{{pembayaran.id_invoice}}.{{pembayaran.bulan}}.{{pembayaran.tahun}}
+          </p>
+        </ion-col>
+      </ion-row>
+      <ion-row class="id">
+        <ion-col id="id" size="4">
+          <p >{{pembayaran.no_pelanggan}} /</p>
+        </ion-col>
+        <ion-col id="kategori" >
+          <p>{{pembayaran.kategori}} </p>
+        </ion-col>
+      </ion-row>
+
+
+      <ion-row class="alamat">
+        <ion-col>
+          {{pembayaran.alamat_pelanggan}}
+        </ion-col>
+      </ion-row>
+
+
+      <ion-row class="dua"  >
+        <ion-col size="4" id="tabel">
+          <ion-label>Sebelum</ion-label>
+        </ion-col>
+        <ion-col size="4" id="tabel">
+          <ion-label>Sesudah</ion-label>
+        </ion-col>
+        <ion-col size="4" id="tabel">
+          <ion-label>Total</ion-label>
+        </ion-col>
+      </ion-row>
+      <ion-row class="tiga">
+        <ion-col size="4" id="data">
+          {{pembayaran.jumlah_meteran}}&#13221;
+        </ion-col>
+        <ion-col size="4" id="data">
+          {{pembayaran.jumlah_meteran}}&#13221;
+        </ion-col>
+        <ion-col size="4" id="data">
+          {{pembayaran.jumlah_meteran}}&#13221;
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="abonamen">
+        <ion-col size="7">
+          Jumlah meteran
+        </ion-col>
+        <ion-col size="5">
+          : {{pembayaran.jumlah_meteran}}&#13221;
+        </ion-col>
+      </ion-row>
+      <ion-row class="abonamen">
+        <ion-col size="7">
+          Abonamen
+        </ion-col>
+        <ion-col size="5">
+          : Rp. {{pembayaran.abonamen}}
+        </ion-col>
+      </ion-row>
+      <ion-row class="abonamen">
+        <ion-col size="7">
+          Kekurangan
+        </ion-col>
+        <ion-col size="5">
+          : Rp. {{pembayaran.kekurangan}}
+        </ion-col>
+      </ion-row>
+      <ion-row class="abonamen">
+        <ion-col size="7">
+          Total Biaya
+        </ion-col>
+        <ion-col size="5">
+          : Rp. {{pembayaran.total_biaya}}
+        </ion-col>
+      </ion-row>
+      <ion-row class="abonamen">
+        <ion-col size="7">
+          Jumlah Bayar
+        </ion-col>
+        <ion-col size="5">
+          : Rp. {{pembayaran.jumlah_bayar}}
+        </ion-col>
+      </ion-row>
+      <ion-row class="status">
+        <h4>
+          {{pembayaran.status_pembayaran}}
+        </h4>
+      </ion-row>
+      <ion-label class="note">*Note</ion-label>
+      <ion-row class="note">
+        <ion-col size="5">
+          Dicatat oleh
+        </ion-col>
+        <ion-col>
+          : {{pembayaran.nama_pencatat}}
+        </ion-col>
+      </ion-row>
+      <ion-row class="note">
+        <ion-col size="5">
+          Ditarik oleh
+        </ion-col>
+        <ion-col>
+          {{pembayaran.nama_penarik}}
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-list>
+
+</ion-content>

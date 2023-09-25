@@ -1,0 +1,33 @@
+ion-header{
+  ion-toolbar{
+    --background: transparent;
+    //--background: #00143d;
+    --background: linear-gradient(to right, #00B4DB, #0083B0);
+    //--background: var(--ion-color-dark) url('/assets/bg-h1  .jpg') no-repeat center center/cover;
+    ion-title{
+      font-family: 'Segoe UI';
+      font-weight: bold;
+    }
+
+    //ion-tab-button{
+     //
+      img{
+        margin-top: 5px;
+        width: 30px;
+        margin-right: 15px;
+      }
+    //}
+    //border-radius: 0 0 30px 30px;
+  }
+}
+.selected {
+  --background: rgb(252, 252, 252);
+  --color: rgb(6, 112, 182);
+}
+
+ion-content{
+  --background: var(--ion-color-dark) url('/assets/bck1.jpg') no-repeat center center/cover;
+  .users_profil{
+    --background: transparent;
+  }
+}

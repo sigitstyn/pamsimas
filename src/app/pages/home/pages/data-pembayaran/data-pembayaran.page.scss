@@ -1,0 +1,66 @@
+ion-header{
+  ion-toolbar{
+    --background: linear-gradient(to right, #00B4DB, #0083B0);
+    ion-title{
+      font-family: 'Segoe UI';
+      font-weight: bold;
+    }
+
+  }
+  ion-segment-button{
+    --indicator-box-shadow: transparent !important;
+    border-radius: 2rem !important;
+    padding: 0 0.9rem;
+    margin: 0.5rem;
+    --background: white;
+    --color: #047499a4;
+    --background-checked: linear-gradient(to right, #00B4DB, #0083B0) !important;
+    --color-checked: white;
+    --indicator-color: transparent !important;
+    font-size: 13px;
+  }
+}
+
+ion-content{
+  --background: var(--ion-color-dark) url('/assets/bg3.jpg') no-repeat center center/cover;
+  .scan{
+    img{
+      width: 70px;
+    }
+  }
+
+  ion-list{
+    margin-bottom: -13px;
+    margin-left: 10px;
+    margin-right: 10px;
+    ion-item{
+      margin-left: -5px;
+      .numb{
+        --background: #00B4DB;
+        background-color: #0083B0;
+        #no{
+          margin-top: -2px;
+          color: white;
+          font-size: small;
+          margin-bottom: -3px;
+          text-align: center;
+        }
+      }
+      .cont{
+        #tittle{
+          font-size: small;
+          opacity: 90%;
+          margin-top: -10px;
+          font-weight: bold;
+          margin-bottom: -12px;
+         }
+         #subtext{
+          opacity: 60%;
+          font-size: smaller;
+          margin-bottom: -8px;
+        }
+      }
+    }
+  }
+
+}
